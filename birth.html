@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Champ – A Dreamy Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #ffb8b8;
+            --accent: #ffe0ef;
+            --deep: #b23a48;
+            --text-dark: #2d1e2f;
+            --text-light: #fff6fa;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f8e1f4 0%, #f9d6e2 100%);
+            color: var(--text-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.2rem;
+            color: var(--primary);
+            margin-bottom: 0.7rem;
+        }
+        .header p {
+            font-size: 1.25rem;
+            color: var(--deep);
+            max-width: 600px;
+            margin: 0 auto 1.2rem auto;
+        }
+        .birthday-date {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 0.6rem 1.3rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        .hero {
+            position: relative;
+            height: 420px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 32px rgba(255, 107, 107, 0.13), 0 2px 8px rgba(0,0,0,0.07);
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: stretch;
+            background: linear-gradient(120deg, #ffe0ef 60%, #f8e1f4 100%);
+        }
+        .hero-img {
+            flex: 1.2;
+            min-width: 0;
+            overflow: hidden;
+        }
+        .hero-img img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.93) saturate(1.1);
+            border-radius: 22px 0 0 22px;
+        }
+        .hero-content {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2.5rem 2.5rem 2.5rem 2rem;
+            background: linear-gradient(90deg,rgba(255,255,255,0.92) 60%,rgba(255,255,255,0.7) 100%);
+            border-radius: 0 22px 22px 0;
+        }
+        .hero-content h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.7rem;
+            color: var(--primary);
+            margin-bottom: 1.1rem;
+        }
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--deep);
+            margin-bottom: 1.2rem;
+        }
+        .hero-content .romantic-cta {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: #fff;
+            font-size: 1.25rem;
+            font-family: 'Dancing Script', cursive;
+            padding: 0.8rem 2.2rem;
+            border-radius: 50px;
+            border: none;
+            box-shadow: 0 2px 16px #ffb8b8;
+            cursor: pointer;
+            margin-top: 0.7rem;
+            transition: background 0.3s, transform 0.2s;
+        }
+        .hero-content .romantic-cta:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transform: scale(1.07);
+        }
+        .messages {
+            margin: 3.5rem 0 2.5rem 0;
+            text-align: center;
+        }
+        .message-card {
+            background: #fff;
+            border-radius: 18px;
+            padding: 2.2rem 2rem;
+            margin: 1.5rem auto;
+            box-shadow: 0 5px 18px rgba(255, 107, 107, 0.07), 0 2px 8px rgba(0,0,0,0.04);
+            max-width: 700px;
+            transition: box-shadow 0.3s;
+        }
+        .message-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .message-card p, .message-card ol {
+            line-height: 1.7;
+            color: var(--deep);
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.2rem;
+            justify-content: center;
+            margin: 3.5rem 0 2.5rem 0;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 8px 24px rgba(255,107,107,0.10), 0 1.5px 6px rgba(0,0,0,0.07);
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 16px 32px rgba(255,107,107,0.18), 0 3px 12px rgba(0,0,0,0.10);
+        }
+        .gallery-item img {
+            width: 100%; height: 270px; object-fit: cover;
+            border-radius: 18px 18px 0 0;
+        }
+        .gallery-caption {
+            font-family: 'Dancing Script', cursive;
+            color: #d72660;
+            font-size: 1.1rem;
+            background: rgba(255,255,255,0.92);
+            border-radius: 0 0 18px 18px;
+            padding: 0.7rem 1rem;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(255,182,213,0.10);
+        }
+        .proposal-section {
+            margin: 3.5rem auto 2.5rem auto;
+            text-align: center;
+            background: linear-gradient(120deg, #ffe0ef 60%, #f8e1f4 100%);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(255,182,213,0.18);
+            padding: 2.5rem 1.5rem 2rem 1.5rem;
+            max-width: 600px;
+            position: relative;
+        }
+        .proposal-section h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 1.2rem;
+        }
+        .proposal-section p {
+            font-size: 1.2rem;
+            color: #b23a48;
+            margin-bottom: 2rem;
+        }
+        .propose-btn {
+            background: linear-gradient(90deg, #ff6b6b 60%, #ffb8b8 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2.5rem;
+            box-shadow: 0 4px 24px #ffb6d5;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            outline: none;
+            position: relative;
+            z-index: 2;
+        }
+        .propose-btn:hover {
+            background: linear-gradient(90deg, #ffb8b8 60%, #ff6b6b 100%);
+            transform: scale(1.07);
+        }
+        #supportMessage {
+            display:none; margin-top:1.5rem; color:#b23a48; font-size:1.15rem; font-family:'Poppins',sans-serif; background:rgba(255,255,255,0.7); border-radius:14px; padding:1.2rem 1.5rem; box-shadow:0 2px 12px rgba(255,182,213,0.10);
+        }
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 900px) {
+            .hero { flex-direction: column; height: auto; }
+            .hero-img img, .hero-img { border-radius: 22px 22px 0 0 !important; }
+            .hero-content { border-radius: 0 0 22px 22px; padding: 2rem 1.2rem; }
+        }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2.2rem; }
+            .hero-content h2 { font-size: 1.3rem; }
+            .gallery-item { width: 100%; }
+            .proposal-section { padding: 1.2rem 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Happy Birthday my champ!</h1>
+            <p>Today is all about you—the one who inspires me every day and makes life so much brighter. I hope this day brings you as much joy as you bring to everyone around you (especially me!).</p>
+            <div class="birthday-date">August 15, 2025</div>
+        </header>
+        <section class="hero">
+            <div class="hero-img">
+                <img src="WhatsApp Image 2025-08-14 at 22.07.53_253e8e9d.jpg" alt="my champ smiling, beautiful moment">
+            </div>
+            <div class="hero-content">
+                <h2>To the most wonderful person</h2>
+                <p>Life sometimes brings us close, and sometimes it puts distance between us. No matter what, your happiness means the world to me. I cherish every feeling, every moment, and every memory we share.</p>
+                <button class="romantic-cta" onclick="document.querySelector('.proposal-section').scrollIntoView({behavior:'smooth'})">Scroll to the Most Important Question ↓</button>
+            </div>
+        </section>
+        <section class="messages">
+            <div class="message-card" id="message1">
+                <h3>A Special Message For You</h3>
+                <p>Dear my champ, on your birthday, I want to celebrate not just the amazing person you are, but the beautiful connection we share. I know life is complicated right now—your heart is pulled in different directions, and the future feels uncertain. I want you to know: I see your courage, your honesty, and your dreams. I admire you for following your heart, even when it’s hard.</p>
+                <p>May this year bring you all the happiness, success and wonderful moments you deserve.</p>
+            </div>
+            <div class="message-card" id="message2">
+                <h3>10 Reasons Why You're Amazing</h3>
+                <ol>
+                    <li>Your smile that lights up every room</li>
+                    <li>The way you always know how to make people feel better</li>
+                    <li>Your incredible intelligence and wisdom</li>
+                    <li>Your passion for everything you do</li>
+                    <li>The way you make everyone feel valued</li>
+                    <li>Your boundless creativity</li>
+                    <li>Your strength in facing challenges</li>
+                    <li>Your generosity and kindness</li>
+                    <li>The joy you bring to every gathering</li>
+                    <li>Just being your wonderful self (and making my heart skip a beat)</li>
+                </ol>
+            </div>
+        </section>
+        <section class="gallery" id="gallery">
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2025-08-14 at 22.07.53_253e8e9d.jpg" alt="my champ smiling, beautiful moment">
+                <div class="gallery-caption">That smile that makes my day</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2025-08-14 at 22.07.53_45cabf47.jpg" alt="my champ laughing, candid joy">
+                <div class="gallery-caption">Your laughter is my favorite sound</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2025-08-14 at 22.07.53_5a98a7c9.jpg" alt="my champ enjoying the day">
+                <div class="gallery-caption">You light up every moment</div>
+            </div>
+            <div class="gallery-item">
+                <img src="WhatsApp Image 2025-08-14 at 22.07.54_0b4b3846.jpg" alt="my champ thoughtful, soft background">
+                <div class="gallery-caption">Lost in your thoughts, I find beauty</div>
+            </div>
+        </section>
+        <section class="proposal-section">
+            <h2>Thank You for Your Honesty</h2>
+            <p>
+                I want you to know how much I appreciate your honesty and the way you’ve shared your thoughts with me. I understand that life and love can be complicated, and that distance makes things even harder. I have feelings for you, and I’ll always treasure the connection we share.<br><br>
+                I also know your heart is pulled in another direction right now, and that someone else has asked for your heart. Whatever you decide, I want you to be truly happy. I support you, no matter what you choose on Monday or any day after.<br><br>
+                Thank you for being open with me. I’ll always value our connection, and I’ll always care for you. 
+                If you ever find yourself wishing for someone who truly cherishes you, who will always put your happiness first, and who will love you with all his heart—I hope you’ll think of me. No matter what, my heart will always be drawn to you.
+            </p>
+            <button class="propose-btn" id="proposeBtn">Whatever you choose, I support you 💖</button>
+            <div id="supportMessage">No matter what happens, I’m grateful for you and I’ll always wish you happiness. Thank you for being honest and for letting me care about you.</div>
+        </section>
+    </div>
+    <footer class="footer">
+        <p>Made with a lot of admiration and maybe a little hope for something more...</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('message1').classList.add('visible');
+            }, 1200);
+            setTimeout(() => {
+                document.getElementById('message2').classList.add('visible');
+            }, 1700);
+            setTimeout(() => {
+                document.getElementById('gallery').classList.add('visible');
+            }, 2200);
+            // Proposal button logic
+            const proposeBtn = document.getElementById('proposeBtn');
+            let supportMessage = document.getElementById('supportMessage');
+            supportMessage.style.display = 'none';
+            if (proposeBtn) {
+                proposeBtn.addEventListener('click', function() {
+                    supportMessage.style.display = 'block';
+                    proposeBtn.disabled = true;
+                    proposeBtn.style.opacity = '0.7';
+                    proposeBtn.textContent = 'You are my dream come true! 💖';
+                    const canvas = document.getElementById('confetti-canvas');
+                    canvas.style.display = 'block';
+                    const confettiSettings = {
+                        target: 'confetti-canvas',
+                        max: 200,
+                        shapes: ['heart'],
+                        colors: [[255,107,107],[255,182,213],[255,142,142],[255,255,255]],
+                        size: 1.5
+                    };
+                    const confetti = new ConfettiGenerator(confettiSettings);
+                    confetti.render();
+                    setTimeout(() => {
+                        canvas.style.display = 'none';
+                        confetti.clear();
+                    }, 5000);
+                });
+            }
+        });
+        // Load confetti library
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js';
+        document.head.appendChild(script);
+    </script>
+    <canvas id="confetti-canvas"></canvas>
+</body>
+</html>
